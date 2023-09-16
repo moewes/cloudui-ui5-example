@@ -22,6 +22,7 @@ public class ButtonView extends Div {
                 button.setText(color.name());
                 add(button);
                 button.setDesign(color);
+                button.addClickHandler(uiEvent -> {});
 
         });
     }

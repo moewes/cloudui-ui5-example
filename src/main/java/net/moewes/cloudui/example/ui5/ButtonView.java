@@ -17,7 +17,6 @@ public class ButtonView extends Div {
 
         Arrays.stream(Ui5Button.Design.values()).forEach(color -> {
 
-
                 Ui5Button button = new Ui5Button();
                 button.setText(color.name());
                 add(button);

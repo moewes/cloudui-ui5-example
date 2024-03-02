@@ -19,6 +19,7 @@ public class MainView extends Div {
 
         add(new H1("UI5 Examples"));
         add(getLink("Button","/ui5/button"));
+        add(getLink("More Examples","/ui5Elements"));
         add(new Label(programm + " Version: " + version));
     }
 

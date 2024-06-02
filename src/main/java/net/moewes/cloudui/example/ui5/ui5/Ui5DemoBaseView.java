@@ -36,6 +36,7 @@ public abstract class Ui5DemoBaseView extends Div {
         home.setIcon("home");
         home.setDesign(Ui5Button.Design.TRANSPARENT);
         home.addEventListener("click", event -> {
+            ui.changeUrl("/ui5Elements");
             ui.navigate(Ui5View.class);
         });
         bar.addStartContent(home);

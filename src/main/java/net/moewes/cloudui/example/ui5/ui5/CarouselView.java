@@ -1,37 +1,37 @@
 package net.moewes.cloudui.example.ui5.ui5;
 
+import jakarta.annotation.PostConstruct;
 import jakarta.inject.Inject;
 import net.moewes.cloudui.UiComponent;
 import net.moewes.cloudui.annotations.CloudUiView;
-import net.moewes.cloudui.example.ui5.Ui5View;
-import net.moewes.cloudui.html.Div;
-import net.moewes.cloudui.quarkus.runtime.CloudUi;
-import net.moewes.cloudui.ui5.*;
+import net.moewes.cloudui.ui5.Ui5Card;
+import net.moewes.cloudui.ui5.Ui5Carousel;
+import net.moewes.cloudui.ui5.Ui5Label;
+import net.moewes.cloudui.ui5.Ui5Panel;
 
 @CloudUiView("/ui5/carousel")
-public class CarouselView extends Div {
+public class CarouselView extends Ui5DemoBaseView {
 
     @Inject
-    public CarouselView(CloudUi ui) {
+    public CarouselView() {
+        super("Carousel");
+    }
 
-        Ui5Bar bar = new Ui5Bar();
-        bar.addMiddleContent(new Ui5Label("Carousel"));
-        add(bar);
-
-        Ui5Button home = new Ui5Button();
-        home.setIcon("home");
-        home.setDesign(Ui5Button.Design.TRANSPARENT);
-        home.addEventListener("click", event -> {
-            ui.navigate(Ui5View.class);
-        });
-        bar.addStartContent(home);
+    @PostConstruct
+    public void createView() {
 
         UiComponent img1 = new UiComponent("img");
-        img1.getElement().setAttribute("src", "https://sap.github.io/ui5-webcomponents/assets/images/sample1.jpg");
+        img1.getElement()
+                .setAttribute("src",
+                        "https://sap.github.io/ui5-webcomponents/nightly/images/sample1.jpg");
         UiComponent img2 = new UiComponent("img");
-        img2.getElement().setAttribute("src", "https://sap.github.io/ui5-webcomponents/assets/images/sample2.jpg");
+        img2.getElement()
+                .setAttribute("src",
+                        "https://sap.github.io/ui5-webcomponents/nightly/images/sample2.jpg");
         UiComponent img3 = new UiComponent("img");
-        img3.getElement().setAttribute("src", "https://sap.github.io/ui5-webcomponents/assets/images/sample3.jpg");
+        img3.getElement()
+                .setAttribute("src",
+                        "https://sap.github.io/ui5-webcomponents/nightly//images/sample3.jpg");
 
         Ui5Panel panel1 = new Ui5Panel("Carousel With Single Item per Page", true);
         add(panel1);
@@ -67,7 +67,8 @@ public class CarouselView extends Div {
         carousel2.setItemPerPageM(2);
         carousel2.setItemPerPageL(3);
 
-        Ui5Panel panel3 = new Ui5Panel("Carousel With Arrow Placement, SelectedIndex and Cyclic", true);
+        Ui5Panel panel3 =
+                new Ui5Panel("Carousel With Arrow Placement, SelectedIndex and Cyclic", true);
         add(panel3);
 
         Ui5Carousel carousel3 = new Ui5Carousel();

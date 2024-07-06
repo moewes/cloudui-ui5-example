@@ -1,37 +1,32 @@
 package net.moewes.cloudui.example.ui5.ui5;
 
+import jakarta.annotation.PostConstruct;
 import jakarta.inject.Inject;
 import net.moewes.cloudui.UiEvent;
 import net.moewes.cloudui.annotations.CloudUiView;
-import net.moewes.cloudui.example.ui5.Ui5View;
-import net.moewes.cloudui.html.Div;
 import net.moewes.cloudui.quarkus.runtime.CloudUi;
-import net.moewes.cloudui.ui5.*;
+import net.moewes.cloudui.ui5.Ui5Calendar;
+import net.moewes.cloudui.ui5.Ui5Panel;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @CloudUiView("/ui5/calendar")
-public class CalendarView extends Div {
+public class CalendarView extends Ui5DemoBaseView {
+
+    static final String TITLE = "Calendar";
+    @Inject
+    CloudUi ui;
 
     @Inject
-    public CalendarView(CloudUi ui) {
+    public CalendarView() {
 
-        Ui5Bar bar = new Ui5Bar();
-        bar.addMiddleContent(new Ui5Label("Calendar"));
-        add(bar);
+        super(TITLE);
+    }
 
-        Ui5Button home = new Ui5Button();
-        home.setIcon("home");
-        home.setDesign(Ui5Button.Design.TRANSPARENT);
-        home.addEventListener("click", event -> {
-            ui.navigate(Ui5View.class);
-        });
-        bar.addStartContent(home);
+    @PostConstruct
+    public void createView() {
+
+        ui.setTitle(TITLE);
 
         Ui5Panel panel = new Ui5Panel("Basic Calendar", true);
         add(panel);

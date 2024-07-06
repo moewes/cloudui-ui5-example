@@ -12,16 +12,14 @@ import net.moewes.cloudui.ui5.Ui5Page;
 
 public abstract class Ui5DemoBaseView extends Div {
 
+    private final Ui5Page page = new Ui5Page();
+    private final Div content = new Div();
     @Inject
     CloudUi ui;
-
-    private Ui5Page page = new Ui5Page();
-    private Div content = new Div();
 
     public Ui5DemoBaseView(String componentName) {
 
         super.add(page);
-        getElement().setAttribute("style", "height: 100vh;");
         page.getElement().setAttribute("background-design", "Solid"); // FIXME
 
         page.add(content);

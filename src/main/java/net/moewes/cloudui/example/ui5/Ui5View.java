@@ -2,9 +2,7 @@ package net.moewes.cloudui.example.ui5;
 
 import net.moewes.cloudui.annotations.CloudUiView;
 import net.moewes.cloudui.example.ui5.ui5.Ui5DemoBaseView;
-import net.moewes.cloudui.html.Div;
 import net.moewes.cloudui.ui5.Ui5Link;
-import net.moewes.cloudui.ui5.Ui5Title;
 import net.moewes.cloudui.ui5.form.Ui5Form;
 
 @CloudUiView("/ui5Elements")
@@ -14,7 +12,7 @@ public class Ui5View extends Ui5DemoBaseView {
         super("Ui5 Elements");
 
         Ui5Form form = new Ui5Form();
-       // getElement().setAttribute("style", "padding: var(--_ui5_card_content_padding); display:
+        // getElement().setAttribute("style", "padding: var(--_ui5_card_content_padding); display:
         // flex; flex-direction: column; gap: 0.1em");
 
         //add(new Ui5Title("Ui5 Elements"));
@@ -25,6 +23,7 @@ public class Ui5View extends Ui5DemoBaseView {
         form.add(new Ui5Link("Badge", "/ui5/badge"));
         form.add(new Ui5Link("Bar", "/ui5/bar"));
         form.add(new Ui5Link("Button", "/ui5/button"));
+        form.add(new Ui5Link("Breadcrumbs", "/ui5/breadcrumbs"));
         form.add(new Ui5Link("Calendar", "/ui5/calendar"));
         form.add(new Ui5Link("Card", "/ui5/card"));
         form.add(new Ui5Link("Carousel", "/ui5/carousel"));
